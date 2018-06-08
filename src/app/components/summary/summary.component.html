@@ -1,0 +1,28 @@
+<div class="container">
+  <table *ngIf="ratedJokes.length > 0; else noRatedJokes" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Joke</th>
+        <th scope="col">
+            <select [(ngModel)]="selected" name="selected">
+                <option *ngFor="let option of options"
+                        [ngValue]="option">
+                  {{ option }}
+                </option>
+           </select>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let joke of ratedJokes | filterRatings : selected">
+        <td><a routerLink="/joke/{{joke.id}}">{{joke.id}}</a></td>
+        <td>{{joke.joke}}</td>
+        <td>{{joke.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noRatedJokes>
+    <h1> No rated Jokes. click here to <a routerLink="/">View Joke</a></h1>
+  </ng-template>
+</div>

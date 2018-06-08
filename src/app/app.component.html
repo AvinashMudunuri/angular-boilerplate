@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- @TODO seperate nav in to shared components -->
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-secondary">
+    <a class="navbar-brand" href="#">Angular Boilerplate</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" routerLink="/joke">Joke of the day<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" routerLink="/summary">Summary</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="text-center">
+    <img src="../assets/minion.png" class="rounded" alt="Joke of the day">
+  </div>
+</div>
+<app-loader></app-loader>
+<router-outlet></router-outlet>

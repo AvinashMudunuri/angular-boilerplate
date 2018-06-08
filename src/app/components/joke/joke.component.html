@@ -1,0 +1,11 @@
+<div class="container">
+  <div *ngIf="currentJoke" class="card">
+    <div class="card-body">
+      <p class="card-text">
+        {{currentJoke.joke}}
+      </p>
+      <button class="vote btn btn-success" (click) = "rateJoke(currentJoke, 'Like')" >Like</button>
+      <button class="vote btn btn-danger" (click) = "rateJoke(currentJoke, 'Dislike')">Dislike</button>
+    </div>
+  </div>
+</div>
