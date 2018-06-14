@@ -1,24 +1,28 @@
-<div class="container">
+<div class="container table-responsive">
   <table *ngIf="ratedJokes.length > 0; else noRatedJokes" class="table table-hover">
     <thead>
       <tr>
+          <th scope="col">#</th>
         <th scope="col">id</th>
         <th scope="col">Joke</th>
         <th scope="col">
-            <select [(ngModel)]="selected" name="selected">
-                <option *ngFor="let option of options"
-                        [ngValue]="option">
-                  {{ option }}
-                </option>
-           </select>
+          <select [(ngModel)]="selected" name="selected">
+            <option *ngFor="let option of options"
+                    [ngValue]="option">
+              {{ option }}
+            </option>
+          </select>
         </th>
+        <th scope="col" (click) = "sortColumn()">TimeStamp</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let joke of ratedJokes | filterRatings : selected">
+      <tr *ngFor="let joke of ratedJokes | filterRatings : selected | sortRatings : sortBy; let i = index">
+        <td>{{i + 1}}</td>
         <td><a routerLink="/joke/{{joke.id}}">{{joke.id}}</a></td>
         <td>{{joke.joke}}</td>
         <td>{{joke.rating}}</td>
+        <td>{{joke.timeStamp}}</td>
       </tr>
     </tbody>
   </table>

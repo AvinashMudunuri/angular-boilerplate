@@ -9,11 +9,15 @@ import { JokeService } from '../joke/joke.service';
 })
 export class SummaryComponent implements OnInit {
   options: string[] = ['All', 'Like', 'Dislike'];
-  selected: string;
+  selected: string = 'All';
   ratedJokes: any;
+  sortBy: boolean = false;
   constructor(private jokeService: JokeService) { }
 
   ngOnInit() {
     this.ratedJokes = this.jokeService.getRatedJokes();
+  }
+  sortColumn() {
+    this.sortBy = !this.sortBy;
   }
 }

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-secondary">
+    <a class="navbar-brand" href="#">Angular Boilerplate</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" routerLink="/joke">Joke of the day<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" routerLink="/summary">Summary</a>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <button id="qsLoginBtn"
+          class="btn btn-primary my-2 my-sm-0"
+          *ngIf="!auth.loggedIn"
+          (click)="auth.login()" type="button">
+            Log In
+        </button>
+        <span class="navbar-nav" *ngIf="auth.loggedIn">Welcome,
+            <a class="nav-link" routerLink="/profile">
+              {{auth.userProfile?.name}}
+            </a>
+        </span>
+        <button id="qsLogoutBtn"
+          class="btn btn-primary my-2 my-sm-0"
+          *ngIf="auth.loggedIn"
+          (click)="auth.logout()" type="button">
+            Log Out
+        </button>
+      </form>
+    </div>
+  </nav>

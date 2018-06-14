@@ -8,10 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JokeComponent } from './components/joke/joke.component';
 import { SummaryComponent } from './components/summary/summary.component';
-import { FilterRatingsPipe } from './filters/filter-ratings.pipe';
 import { httpInterceptorProviders } from './interceptors';
 import { JokeDetailComponent } from './components/joke-detail/joke-detail.component';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { CallbackComponent } from './components/callback/callback.component';
+import { filterProviders } from './filters';
+import { HeaderComponent } from './shared/header/header.component';
+import { ProfileComponent } from './components/profile/profile.component';
 // import { AppRouteGaurd } from './app-route-gaurd';
 
 @NgModule({
@@ -19,9 +22,12 @@ import { LoaderComponent } from './shared/loader/loader.component';
     AppComponent,
     JokeComponent,
     SummaryComponent,
-    FilterRatingsPipe,
     JokeDetailComponent,
-    LoaderComponent
+    LoaderComponent,
+    CallbackComponent,
+    filterProviders,
+    HeaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

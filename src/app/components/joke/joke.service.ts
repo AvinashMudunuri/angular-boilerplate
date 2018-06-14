@@ -27,13 +27,14 @@ export class JokeService {
       );
   }
   rateJoke(currentJoke, rating): any {
-    const { id, joke } = currentJoke;
+    const { id, joke, timeStamp } = currentJoke;
     this.ratedJokes = {
       ...this.ratedJokes,
       [id]: {
         id,
         joke,
-        rating
+        rating,
+        timeStamp
       }
     };
   }

@@ -5,21 +5,19 @@ import { LoaderState } from './loader';
 @Injectable({
   providedIn: 'root'
 })
-
 export class LoaderService {
+  private loaderSubject = new BehaviorSubject<LoaderState>({ show: false });
 
-  private loaderSubject = new BehaviorSubject<LoaderState>({show : false});
-
-  constructor() { }
+  constructor() {}
 
   show() {
-    this.loaderSubject.next(<LoaderState>{show: true});
+    this.loaderSubject.next(<LoaderState>{ show: true });
   }
 
   hide() {
-    this.loaderSubject.next(<LoaderState>{show: false});
+    this.loaderSubject.next(<LoaderState>{ show: false });
   }
-  getMessage(): Observable<any> {
+  getState(): Observable<any> {
     return this.loaderSubject.asObservable();
-}
+  }
 }

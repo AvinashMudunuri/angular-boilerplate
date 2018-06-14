@@ -1,6 +1,7 @@
 export class Joke {
   id: string;
   joke: string;
+  timeStamp: string;
 }
 
 export class RatedJokes {
@@ -11,4 +12,5 @@ export class RatedJoke {
   id: string;
   joke: string;
   rating: string;
+  timeStamp: string;
 }

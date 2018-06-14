@@ -8,7 +8,7 @@ import { LoaderState } from './loader';
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss']
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent implements OnInit, OnDestroy {
   show = false;
 
   private subscription: Subscription;
@@ -22,7 +22,7 @@ export class LoaderComponent implements OnInit {
       this.subscription.unsubscribe();
   }
   createServiceSubscription() {
-    this.subscription = this.loaderService.getMessage().subscribe(state => {
+    this.subscription = this.loaderService.getState().subscribe(state => {
       this.show = state.show;
     });
   }

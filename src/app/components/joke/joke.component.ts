@@ -19,7 +19,13 @@ export class JokeComponent implements OnInit {
   }
 
   getJoke(): void {
-    this.jokeService.getJoke().subscribe((data: Joke ) => this.currentJoke = data);
+    this.jokeService.getJoke().subscribe((data: Joke ) => {
+      this.currentJoke = {
+        id: data.id,
+        joke: data.joke,
+        timeStamp: new Date().toLocaleString()
+      };
+    });
   }
   rateJoke(currentJoke, rating): void {
     this.jokeService.rateJoke(currentJoke, rating);
